@@ -2,3 +2,10 @@
     background-image: url("../../assets/login2.jpg");
     background-size:cover;  
 }
+
+@media (max-width: 500px) {
+    .auth-body{
+        background-image: url("../../assets/login9.png");
+        background-size:cover;  
+    }
+}
