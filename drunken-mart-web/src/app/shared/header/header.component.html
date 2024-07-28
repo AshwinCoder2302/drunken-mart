@@ -1,27 +1,28 @@
 <nav>
   <div class="header d-flex justify-content-around align-items-center py-2">
-    <div class="header-hover"><b>Druken Mart</b></div>
+    <div class="header-hover"><span><b>Druken Mart</b></span></div>
     <div class="location d-flex justify-content-center align-item-center header-hover">
-      <i class="bi bi-geo-alt"></i> Location
+      <i class="bi bi-geo-alt"></i> <span>Location</span>
     </div>
     <div class="d-flex">
-      <input class="form-control px-5 search-input" type="search" placeholder="Search for products" aria-label="Search">
-      <button class="btn button search-button" type="submit">Search</button>
+      <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn button search-button d-flex gap-2" type="submit"><span class="search-text">Search</span><i class="bi bi-search"></i></button>
     </div>
     <div class="header-hover">
-      <i class="bi bi-cart"></i> Cart
+      <i class="bi bi-cart"></i> <span>Cart</span>
     </div>
     <div class="header-hover">
-      <i class="bi bi-arrow-left-right"></i> Returns
+      <i class="bi bi-arrow-left-right"></i> <span>Returns</span>
     </div>
     <div class="header-hover">
-      <i class="bi bi-box"></i> Orders
+      <i class="bi bi-box"></i> <span>Orders</span>
     </div>
     <div class="header-hover">
-      <i class="bi bi-person"></i> Profile
+      <i class="bi bi-person"></i> <span>Profile</span>
     </div>
     <div>
-      <a href="/auth/login" class="text-decoration-none header-hover logout">Logout</a>
+      <a href="/auth/login" class="text-decoration-none header-hover logout"><i class="bi bi-box-arrow-in-left"></i>
+        <span>Logout</span></a>
     </div>
   </div>
 </nav>
