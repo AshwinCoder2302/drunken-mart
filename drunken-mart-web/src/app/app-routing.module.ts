@@ -9,6 +9,9 @@ import { ProductComponent } from './home/product/product.component';
 import { LayoutComponent } from './home/layout/layout.component';
 
 const routes: Routes = [
+  {path: '', component: AuthComponent, children: [
+    {path: '', component: LoginComponent},
+  ]},
   { path: 'auth', component: AuthComponent, children:[
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: SignupComponent},
