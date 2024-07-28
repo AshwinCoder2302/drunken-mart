@@ -1,0 +1,37 @@
+.header{
+  background-color: #2C3E50;
+  color:#FFFFFF;
+}
+
+.button {
+  border: none;
+  background-color: #3498DB;
+  color: #FFFFFF;
+}
+
+img {
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.search-input{
+  border-right: none; 
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.search-button{
+  border-left: none; 
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.logout {
+  color:#FFFFFF;
+}
+
+.header-hover:hover {
+  cursor: pointer;
+  color: #5f84a8;
+}
