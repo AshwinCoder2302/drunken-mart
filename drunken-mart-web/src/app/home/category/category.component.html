@@ -6,7 +6,7 @@
   </div>
   <div class="carousel-inner">
     <div *ngFor="let slide of slides; let i = index" [class.active]="i === 0" class="carousel-item">
-      <img [src]="slide.image" class="d-block w-100 carousel-image" [alt]="slide.caption">
+      <img [src]="slide.image" class="d-block w-100 carousel-image cursor-pointer" [alt]="slide.caption">
       <div class="carousel-caption d-none d-md-block">
         <h5>{{ slide.caption }}</h5>
       </div>
@@ -21,10 +21,17 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<div class="category-list">
-  <div *ngFor="let category of categories" class="category-item" (click)="navigateToProductComponent(category)">
-    <img class="products" *ngIf="category.image" [src]="'data:image/png;base64,' + category.image"
-      alt="{{ category.name }}">
-    <h4>{{ category.name }}</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mb-4 d-flex justify-content-center mt-3" *ngFor="let category of categories"
+      (click)="navigateToProductComponent(category)">
+      <div class="card">
+        <div class="card-body d-flex flex-column">
+          <img class="card-img-top img-fluid category-image cursor-pointer" *ngIf="category.image"
+            [src]="'data:image/png;base64,' + category.image" alt="{{ category.name }}">
+          <h5 class="card-title mt-2 d-flex justify-content-around fw-bold">{{ category.name }}</h5>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

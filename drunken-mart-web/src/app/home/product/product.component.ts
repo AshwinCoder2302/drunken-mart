@@ -32,4 +32,8 @@ export class ProductComponent implements OnInit {
       this.products = products;
     });
   }
+
+  roundPrice(price: number, discount: number): any {
+    return Math.round(price - (price * (discount / 100)));
+  }
 }

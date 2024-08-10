@@ -1,7 +1,6 @@
 .header {
   background-color: #2C3E50;
   color: #FFFFFF;
-  position: fixed;
   z-index: 1000;
   width: 100%;
 }
@@ -42,10 +41,11 @@ img {
 /* Media query for screen width 400px or less */
 @media (max-width: 500px) {
   span {
-    display: none; /* Hide the text */
+    display: none;
+    /* Hide the text */
   }
 
-  .search-input{
-    width:100px;
+  .search-input {
+    width: 100px;
   }
 }
