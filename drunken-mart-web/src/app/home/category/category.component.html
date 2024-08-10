@@ -1,11 +1,12 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" *ngFor="let slide of slides; let i = index" [class.active]="i === 0"
-            data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i" aria-current="true" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+      data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i" aria-current="true"
+      [attr.aria-label]="'Slide ' + (i + 1)"></button>
   </div>
   <div class="carousel-inner">
     <div *ngFor="let slide of slides; let i = index" [class.active]="i === 0" class="carousel-item">
-      <img [src]="slide.image" class="d-block w-100" [alt]="slide.caption">
+      <img [src]="slide.image" class="d-block w-100 carousel-image" [alt]="slide.caption">
       <div class="carousel-caption d-none d-md-block">
         <h5>{{ slide.caption }}</h5>
       </div>
@@ -19,4 +20,11 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
+<div class="category-list">
+  <div *ngFor="let category of categories" class="category-item" (click)="navigateToProductComponent(category)">
+    <img class="products" *ngIf="category.image" [src]="'data:image/png;base64,' + category.image"
+      alt="{{ category.name }}">
+    <h4>{{ category.name }}</h4>
+  </div>
 </div>

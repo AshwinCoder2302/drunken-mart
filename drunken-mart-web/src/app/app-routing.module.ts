@@ -9,18 +9,24 @@ import { ProductComponent } from './home/product/product.component';
 import { LayoutComponent } from './home/layout/layout.component';
 
 const routes: Routes = [
-  {path: '', component: AuthComponent, children: [
-    {path: '', component: LoginComponent},
-  ]},
-  { path: 'auth', component: AuthComponent, children:[
-    {path: 'login', component: LoginComponent},
-    {path: 'signup', component: SignupComponent},
-    {path: 'forgot-password', component: ForgotPasswordComponent}
-  ]},
-  { path: 'home', component: LayoutComponent, children:[
-    {path: 'category', component: CategoryComponent},
-    {path: 'product', component: ProductComponent},
-  ]},
+  {
+    path: '', component: AuthComponent, children: [
+      { path: '', component: LoginComponent },
+    ]
+  },
+  {
+    path: 'auth', component: AuthComponent, children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'signup', component: SignupComponent },
+      { path: 'forgot-password', component: ForgotPasswordComponent }
+    ]
+  },
+  {
+    path: 'home', component: LayoutComponent, children: [
+      { path: 'category', component: CategoryComponent },
+      { path: 'product/:id', component: ProductComponent },
+    ]
+  },
 ]
 
 @NgModule({

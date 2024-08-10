@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   loginForm!: FormGroup;
   submitted = false;
 
@@ -28,8 +27,9 @@ export class LoginComponent implements OnInit {
       console.log("Form is Invalid");
       return;
     }
-    
-    console.log("Form is valid");
-    this.router.navigate(['/home/category']);
+
+    if (this.loginForm.value.username == 'user' && this.loginForm.value.password == 'user') {
+      this.router.navigate(['/home/category']);
+    }
   }
 }

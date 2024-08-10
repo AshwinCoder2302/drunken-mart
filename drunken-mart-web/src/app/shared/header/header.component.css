@@ -1,6 +1,9 @@
 .header {
   background-color: #2C3E50;
   color: #FFFFFF;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
 }
 
 .button {

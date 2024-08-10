@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Carousel } from 'bootstrap';
+import { Category } from 'src/app/model/category';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
-export class CategoryComponent implements OnInit{
+export class CategoryComponent implements OnInit {
+
+  categories: Category[] = [];
+
+  constructor(private categoryService: CategoryService, private productService: ProductService, private router: Router) { }
 
   slides: { image: string, caption: string }[] = [
     { image: 'assets/carousel1.png', caption: 'Sports' },
@@ -19,6 +27,7 @@ export class CategoryComponent implements OnInit{
   ];
 
   ngOnInit(): void {
+    this.getAllCategories();
     const carouselElement = document.getElementById('carouselExampleIndicators');
     if (carouselElement) {
       const carousel = new Carousel(carouselElement, {
@@ -28,4 +37,13 @@ export class CategoryComponent implements OnInit{
     }
   }
 
+  getAllCategories(): void {
+    this.categoryService.getAllCategory().subscribe(categories => {
+      this.categories = categories;
+    });
+  }
+
+  navigateToProductComponent(category: Category): void {
+    this.router.navigate(['/home/product', category.id]);
+  }
 }
