@@ -1,5 +1,7 @@
 package com.drunkenmart.controller;
 
+import com.drunkenmart.dto.CategoryBulkDTO;
+import com.drunkenmart.dto.ProductBulkDTO;
 import com.drunkenmart.entity.Category;
 import com.drunkenmart.entity.Product;
 import com.drunkenmart.service.CategoryService;
@@ -8,7 +10,10 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Base64;
 import java.util.List;
 
 @RestController
@@ -24,6 +29,11 @@ public class CategoryController {
         return categoryService.getAllCategory();
     }
 
+//    @GetMapping("{categoryId}")
+//    public Category getCategoryById(@PathVariable(value="categoryId") String categoryId){
+//        return categoryService.getCategoryById(categoryId);
+//    }
+
     @GetMapping("/{categoryId}")
     public List<Product> getAllProductByCategoryId(@PathVariable(value = "categoryId") String categoryId){
         return categoryService.getAllProductByCategoryId(categoryId);
@@ -34,4 +44,8 @@ public class CategoryController {
         return categoryService.saveCategory(categoryImage);
     }
 
+    @PostMapping("/bulk")
+    public String saveBulkCategory(@RequestBody List<CategoryBulkDTO> categoryBulkDTOs) {
+        return categoryService.saveBulkCategory(categoryBulkDTOs);
+    }
 }

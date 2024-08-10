@@ -1,5 +1,6 @@
 package com.drunkenmart.service;
 
+import com.drunkenmart.dto.CategoryBulkDTO;
 import com.drunkenmart.entity.Category;
 import com.drunkenmart.entity.Product;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,4 +17,6 @@ public interface CategoryService {
     List<Product> getAllProductByCategoryId(String categoryId);
 
     Category getCategoryById(String categoryId);
+
+    String saveBulkCategory(List<CategoryBulkDTO> categoryBulkDTOs);
 }

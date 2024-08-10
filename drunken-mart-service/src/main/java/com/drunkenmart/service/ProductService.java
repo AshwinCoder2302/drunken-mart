@@ -1,5 +1,6 @@
 package com.drunkenmart.service;
 
+import com.drunkenmart.dto.ProductBulkDTO;
 import com.drunkenmart.entity.Product;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,4 +14,6 @@ public interface ProductService {
     String saveProduct(MultipartFile productImage) throws IOException;
 
     Product getProductById(String productId);
+
+    String saveBulkProduct(String categoryId, List<ProductBulkDTO> productBulkDTO);
 }

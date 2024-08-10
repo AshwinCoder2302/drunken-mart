@@ -1,5 +1,6 @@
 package com.drunkenmart.controller;
 
+import com.drunkenmart.dto.ProductBulkDTO;
 import com.drunkenmart.entity.Product;
 import com.drunkenmart.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,10 @@ public class productController {
     public String saveProduct(@RequestPart(value = "productImage") MultipartFile productImage) throws IOException {
         return productService.saveProduct(productImage);
     }
+
+    @PostMapping("/bulk/{categoryId}")
+    public String saveBulkProduct(@PathVariable("categoryId") String categoryId, @RequestBody List<ProductBulkDTO> ProductBulkDTO) {
+        return productService.saveBulkProduct(categoryId, ProductBulkDTO);
+    }
+
 }
