@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Kitchen",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/kitchen.jpg"
+  },
+  {
+    "name": "Men Shirts",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/shirt.jpg"
+  },
+  {
+    "name": "Women Slippers",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/slipper.jpg"
+  },
+  {
+    "name": "Men Watches",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/watch.jpg"
+  },
+  {
+    "name": "Women Tshirts",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/women-tshirt.jpg"
+  }
+]

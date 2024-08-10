@@ -1,0 +1,102 @@
+[
+  {
+    "brandName": "Allen Solly",
+    "name": "Casual Shirt for Men",
+    "rating": 4.3,
+    "review": 1500,
+    "discount": 15,
+    "price": 1200,
+    "details": "High-quality product A.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/allen-solly.jpg"
+  },
+  {
+    "brandName": "Color Chakra",
+    "name": "Casual Waffle Knit",
+    "rating": 3.9,
+    "review": 8500,
+    "discount": 10,
+    "price": 950,
+    "details": "Affordable and reliable product B.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/color-chakra.jpg"
+  },
+  {
+    "brandName": "Dennis Lingo",
+    "name": "Men's Solid Slim",
+    "rating": 4.7,
+    "review": 10500,
+    "discount": 20,
+    "price": 1400,
+    "details": "Premium product C with excellent features.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/dennis_lingo.jpg"
+  },
+  {
+    "brandName": "Indian Garage",
+    "name": "Men Striped Casual",
+    "rating": 4.1,
+    "review": 32000,
+    "discount": 25,
+    "price": 1100,
+    "details": "Best-selling product D.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/indian_garage_co.jpg"
+  },
+  {
+    "brandName": "Indo Prime",
+    "name": "Men's Cotton Casual",
+    "rating": 4.5,
+    "review": 78000,
+    "discount": 18,
+    "price": 1300,
+    "details": "Top-rated product E with great reviews.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/indo_prime.jpg"
+  },
+  {
+    "brandName": "Jungle Jeans",
+    "name": "Mens's Printed Shirt",
+    "rating": 4.2,
+    "review": 2200,
+    "discount": 12,
+    "price": 1000,
+    "details": "Popular product F with solid performance.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/jungle-jeans.jpg"
+  },
+  {
+    "brandName": "Louis Philippe",
+    "name": "Sports Slim Fit",
+    "rating": 4.0,
+    "review": 12500,
+    "discount": 22,
+    "price": 1450,
+    "details": "Reliable and durable product G.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/louis_philippe.jpg"
+  },
+  {
+    "brandName": "Magestic Man",
+    "name": "Cotton Checkered Slim",
+    "rating": 4.4,
+    "review": 46000,
+    "discount": 17,
+    "price": 1150,
+    "details": "Highly recommended product H.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/magestic-man.jpg"
+  },
+  {
+    "brandName": "Peter England",
+    "name": "Men Regular Fit",
+    "rating": 4.6,
+    "review": 89000,
+    "discount": 19,
+    "price": 1350,
+    "details": "Excellent product I with top features.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/peter_england.jpg"
+  },
+  {
+    "brandName": "U Turn",
+    "name": "Mens Cotton Cool",
+    "rating": 4.3,
+    "review": 51000,
+    "discount": 14,
+    "price": 1250,
+    "details": "Great value product J.",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Shirts/u-turn.jpg"
+  }
+]
