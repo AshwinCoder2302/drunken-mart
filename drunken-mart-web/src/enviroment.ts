@@ -1,6 +1,6 @@
 export const environment = {
-    local: true,
-    dev: false,
+    local: false,
+    dev: true,
     localURL: 'http://localhost:8082',
-    devURL: 'http://www.drunken-mart.com'
+    devURL: 'https://drunken-mart.onrender.com'
 };
