@@ -14,4 +14,8 @@ export class ProductService {
   getAllProductById(categoryId: string): Observable<Product[]> {
     return this.http.get<Product[]>(this.restApiService.getURL(this.restApiService.PRODUCT.GET_ALL_PRODUCT) + '/' + categoryId);
   }
+
+  getAllProductsBySearchKeyword(searchKeyword: string) {
+    return this.http.get<Product[]>(this.restApiService.getURL(this.restApiService.PRODUCT.GET_ALL_PRODUCT_BY_SEARCH) + searchKeyword);
+  }
 }

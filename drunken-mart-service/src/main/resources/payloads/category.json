@@ -1,22 +1,42 @@
 [
   {
-    "name": "Kitchen",
-    "imagePath": "/home/user/Downloads/Drunken-mart-images/kitchen.jpg"
+    "name": "Airdopes",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/Airdopes.jpg"
+  },
+  {
+    "name": "Electronics",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/electronics.jpg"
+  },
+  {
+    "name": "Laptop",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/laptop.jpg"
   },
   {
     "name": "Men Shirts",
-    "imagePath": "/home/user/Downloads/Drunken-mart-images/shirt.jpg"
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/men_shirts.jpg"
   },
   {
-    "name": "Women Slippers",
-    "imagePath": "/home/user/Downloads/Drunken-mart-images/slipper.jpg"
+    "name": "Men Shoes",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/men_shoes.jpg"
   },
   {
-    "name": "Men Watches",
-    "imagePath": "/home/user/Downloads/Drunken-mart-images/watch.jpg"
+    "name": "Mobiles",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/mobiles.jpg"
   },
   {
-    "name": "Women Tshirts",
-    "imagePath": "/home/user/Downloads/Drunken-mart-images/women-tshirt.jpg"
+    "name": "Smart Watches",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/smart_watches.jpg"
+  },
+  {
+    "name": "Toys",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/toys.jpg"
+  },
+  {
+    "name": "Women Pants",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/women_pants.jpg"
+  },
+  {
+    "name": "Women Tops",
+    "imagePath": "/home/user/Downloads/Drunken-mart-images/women_tops.jpg"
   }
 ]

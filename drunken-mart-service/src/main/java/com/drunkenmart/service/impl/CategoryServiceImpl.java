@@ -1,77 +1,98 @@
 package com.drunkenmart.service.impl;
 
-import com.drunkenmart.dto.CategoryBulkDTO;
+import com.drunkenmart.dto.CategoryRequestResponseDTO;
 import com.drunkenmart.entity.Category;
-import com.drunkenmart.entity.Product;
 import com.drunkenmart.repository.CategoryRepository;
 import com.drunkenmart.service.CategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
 
-    @Autowired
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     @Override
-    public List<Category> getAllCategory() {
-        return categoryRepository.findAll();
+    public List<CategoryRequestResponseDTO> getAllCategory()  {
+        List<Category> categories = categoryRepository.findAll();
+        List<CategoryRequestResponseDTO> categoryRequestResponseDTOList = categories.stream().map(category -> {
+            CategoryRequestResponseDTO categoryRequestResponseDTO = new CategoryRequestResponseDTO();
+            try {
+                categoryRequestResponseDTO.setId(category.getId());
+                categoryRequestResponseDTO.setImage(imageToByteArray(category.getImagePath()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            categoryRequestResponseDTO.setName(category.getName());
+            return categoryRequestResponseDTO;
+        }).toList();
+        return categoryRequestResponseDTOList;
     }
 
-    @Override
-    public List<Product> getAllProductByCategoryId(String categoryId) {
-        return categoryRepository.findById(categoryId).get().getProducts();
+    private String imageToByteArray(String imageURL) throws IOException {
+        File file = new File(imageURL);
+        byte[] fileContent = Files.readAllBytes(file.toPath());
+        return Base64.getEncoder().encodeToString(fileContent);
     }
 
     @Override
     public Category getCategoryById(String categoryId) {
-        return categoryRepository.findById(categoryId).get();
+        Optional<Category> category = categoryRepository.findById(categoryId);
+        return category.orElse(null);
     }
 
     @Override
-    public String saveBulkCategory(List<CategoryBulkDTO> categoryBulkDTOs) {
-       List<Category> categoryList = categoryBulkDTOs.stream().map(categoryDTO -> {
-            Category category = new Category();
-            try {
-                File file = new File(categoryDTO.getImagePath());
-
-                // Read the file content as a byte array
-                byte[] fileContent = Files.readAllBytes(file.toPath());
-
-                // Encode the byte array to a Base64 string
-                String encodedImage = Base64.getEncoder().encodeToString(fileContent);
-
-                // Create a new Category object and set the fields
-                category.setImage(encodedImage);
-                category.setName(categoryDTO.getName());
-
+    public String saveBulkCategory(List<Category> categories) {
+       List<Category> categoryList = categories.stream().map(category -> {
+           try {
+               String categoryFileName = Paths.get(category.getImagePath()).getFileName().toString();
+               File file = new File(category.getImagePath());
+               String resourcePath = new FileSystemResource("src/main/resources/application.properties").getURI().toString().replace("application.properties","").replace("file:","");
+               category.setImagePath(resourcePath+"images/categories/"+categoryFileName);
+               byte[] fileContent = Files.readAllBytes(file.toPath());
+               saveCategoryImageInSpecificPath(categoryFileName, fileContent);
             } catch (IOException e) {
-                // Handle the exception (e.g., log it, return an error response, etc.)
-                e.printStackTrace();
-                throw new RuntimeException("Failed to read file: " + categoryDTO.getImagePath(), e);
+                throw new RuntimeException("Failed to read file: " + category.getImagePath(), e);
             }
             return category;
         }).toList();
-
-        // Save the category list
         categoryRepository.saveAll(categoryList);
         return "Bulk Category Saved Successfully";
     }
 
     @Override
-    public String saveCategory(MultipartFile categoryImage) throws IOException {
-        Category category = new Category();
-        category.setName("Category");
-        category.setImage(Base64.getEncoder().encodeToString(categoryImage.getBytes()));
+    public String saveCategory(MultipartFile categoryImage, Category category) throws IOException {
+        String categoryFileName = categoryImage.getOriginalFilename();
+        category.setImagePath("/home/user/Documents/drunken-mart/drunken-mart-service/src/main/resources/images/categories/"+categoryFileName);
+        saveCategoryImageInSpecificPath(categoryFileName, categoryImage.getBytes());
         categoryRepository.save(category);
         return "Category Saved Successfully";
     }
+
+    public void saveCategoryImageInSpecificPath(String categoryFileName, byte[] categoryImageBytes ) throws IOException {
+        Path resourcePath = Paths.get("/home/user/Documents/drunken-mart/drunken-mart-service/src/main/resources");
+        Path imagePath = Paths.get(resourcePath + "/images");
+        Path categoryPath = Paths.get(imagePath + "/categories");
+        if (!Files.exists(imagePath)) {
+            Files.createDirectories(imagePath);
+        }
+        if(!Files.exists(categoryPath)){
+            Files.createDirectories(categoryPath);
+        }
+        Path filePath = categoryPath.resolve(categoryFileName);
+        Files.write(filePath, categoryImageBytes);
+    }
+
 }

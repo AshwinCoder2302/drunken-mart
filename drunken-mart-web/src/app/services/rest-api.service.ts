@@ -13,7 +13,8 @@ export class RestAPIService {
   };
 
   public PRODUCT: any = {
-    GET_ALL_PRODUCT: '/product'
+    GET_ALL_PRODUCT: '/product/category',
+    GET_ALL_PRODUCT_BY_SEARCH: '/product/search?searchKeyword='
   };
 
   getURL(endpoint: string): any {

@@ -24,7 +24,8 @@ const routes: Routes = [
   {
     path: 'home', component: LayoutComponent, children: [
       { path: 'category', component: CategoryComponent },
-      { path: 'product/:id', component: ProductComponent },
+      { path: 'category-product/:id', component: ProductComponent },
+      { path: 'product', component: ProductComponent }
     ]
   },
 ]

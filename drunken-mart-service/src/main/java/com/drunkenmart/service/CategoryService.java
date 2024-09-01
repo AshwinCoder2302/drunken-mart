@@ -1,8 +1,7 @@
 package com.drunkenmart.service;
 
-import com.drunkenmart.dto.CategoryBulkDTO;
+import com.drunkenmart.dto.CategoryRequestResponseDTO;
 import com.drunkenmart.entity.Category;
-import com.drunkenmart.entity.Product;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -10,13 +9,11 @@ import java.util.List;
 
 public interface CategoryService {
 
-    List<Category> getAllCategory();
+    List<CategoryRequestResponseDTO> getAllCategory();
 
-    String saveCategory(MultipartFile categoryImage) throws IOException;
-
-    List<Product> getAllProductByCategoryId(String categoryId);
+    String saveCategory(MultipartFile categoryImage, Category category) throws IOException;
 
     Category getCategoryById(String categoryId);
 
-    String saveBulkCategory(List<CategoryBulkDTO> categoryBulkDTOs);
+    String saveBulkCategory(List<Category> categories);
 }

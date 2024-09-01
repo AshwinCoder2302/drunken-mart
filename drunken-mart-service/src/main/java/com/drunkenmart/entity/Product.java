@@ -1,10 +1,12 @@
 package com.drunkenmart.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Data
+@Setter
+@Getter
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -16,8 +18,7 @@ public class Product {
     private Integer discount;
     private Integer price;
     private String details;
-    @Lob
-    private String image;
+    private String imagePath;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;

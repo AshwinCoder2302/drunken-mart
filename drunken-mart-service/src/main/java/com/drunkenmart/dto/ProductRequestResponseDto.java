@@ -3,7 +3,8 @@ package com.drunkenmart.dto;
 import lombok.Data;
 
 @Data
-public class ProductBulkDTO {
+public class ProductRequestResponseDto {
+    private String id;
     private String brandName;
     private String name;
     private Integer rating;
@@ -11,5 +12,5 @@ public class ProductBulkDTO {
     private Integer discount;
     private Integer price;
     private String details;
-    private String imagePath;
+    private String image;
 }
